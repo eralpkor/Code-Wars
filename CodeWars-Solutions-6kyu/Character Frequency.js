@@ -11,5 +11,17 @@ will return
 Letter frequency analysis is often used to analyse simple substitution cipher texts like those created by the Caesar cipher. */
 
 function letterFrequency(text){
-  
+  var str = text.toLowerCase().replace(/[^a-zA-Z]+/g, "");
+  var obj = str.split('').reduce(function(a, v) {
+    if (v in a) {
+      a[v]++;
+    } else {
+      a[v] = 1;
+    }
+    return a;
+  }, {});
+  var res = Object.entries(obj);
+  return res.sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
 }
+
+

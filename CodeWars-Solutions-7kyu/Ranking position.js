@@ -20,17 +20,9 @@
 // ];
 
 function ranking(people) {
-  var input = people.sort(function (a, b) {
-    var nameA = a.name.toUpperCase();
-    var nameB = b.name.toUpperCase();
-
-
-    if (nameA < nameB) return -1;
-    if (nameA > nameB) return 1;
-    return 0;
-  }).sort(function (a, b) {
-    return b.points - a.points;
-  })
+  var input = people.sort(function(a, b) {
+    return b.points - a.points || a.name.localeCompare(b.name)
+  });
 
   var result = [];
   var pos = 0;
@@ -45,13 +37,21 @@ function ranking(people) {
     }
     result.push(input[i]);
   }
-
-  return result.sort(function (vote1, vote2) {
-    // sort by points
-    if (vote1.points > vote2.points) return -1;
-    if (vote1.points < vote2.points) return 1;
-    // sort by names
-    if (vote1.name > vote2.name) return 1;
-    if (vote1.name < vote2.name) return -1;
-  });
+  return result;
 }
+
+
+// working sorter
+function ranking(people) {
+  people.sort((a, b) => b.points - a.points || a.name.localeCompare(b.name))
+  
+  people.forEach((x, i) => x.position = !i || x.points < people[i-1].points ? i + 1 : people[i-1].position);
+  return people;
+}
+
+// The ! is the boolean NOT operator.
+
+// NOT (!): toggles a statement from true to false or from false to true.
+
+// !0 = true
+// !1 = false
