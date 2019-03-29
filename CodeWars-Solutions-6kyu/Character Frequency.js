@@ -24,4 +24,9 @@ function letterFrequency(text){
   return res.sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
 }
 
-
+// sorter
+function letterFrequency(text){
+  var str = text.toLowerCase().replace(/[^a-zA-Z]+/g, "");
+  var obj = str.split('').reduce((a, v) => {(v in a) ? a[v]++ : a[v] = 1; return a}, {});
+  return Object.entries(obj).res.sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+}
