@@ -9,49 +9,37 @@ smaller([5, 4, 3, 2, 1]) === [4, 3, 2, 1, 0]
 smaller([1, 2, 0]) === [1, 1, 0]
 If you've completed this one and you feel like testing your performance tuning of this same kata, head over to the much tougher version How many are smaller than me II? */
 
+// Helper recursion version slightly faster
 function smaller(array) {
   var result = []
-  var len = array.length - 1;
   var cache = 0;
-  var num = 0;
 
-  while (len >= array.length) {
-    for (let i = 0; i < array.length; i++) {
-      if (array[i] > array[len]) {
-        cache++
+  function helper(arr) {
+    if (arr.length === 0) return;
+
+    for (let i = arr.length - 1; i >= 0; i--) {
+      if (arr[0] > arr[i]) {
+        cache++;
+        continue;
       } else {
         cache = cache;
-    }
+        continue;
+      }
     }
     result.push(cache);
-    array.splice(0, 1);
     cache = 0;
-    len--;
+    helper(arr.slice(1));
   }
-  
+
+  helper(array);
   return result;
 }
 
 
-function smaller(array) {
-  var result = [];
-  cache = 0;
-  for (let i = array.length - 1; i >= 0; i--) {
 
-    if (array[0] > array[i]) {
-      cache++;
-    } else {
-      cache = cache;
-    }
-    result.push(cache);
-    array.splice(0, 1);
-  }
-  return result;
-}
-
-function smaller(array) {
-  var base = 0
-  while (base <= array.length) {
-    
-  }
-}
+// sorter bot slower
+function smaller(arr) {
+  return arr.map((num, i) => {
+    return arr.slice(i).filter(v => v < num).length
+  });
+ }
