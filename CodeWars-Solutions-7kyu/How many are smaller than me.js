@@ -12,22 +12,21 @@ If you've completed this one and you feel like testing your performance tuning o
 // Helper recursion version slightly faster
 function smaller(array) {
   var result = []
-  var cache = 0;
+  var temp = 0;
 
   function helper(arr) {
     if (arr.length === 0) return;
 
     for (let i = arr.length - 1; i >= 0; i--) {
       if (arr[0] > arr[i]) {
-        cache++;
-        continue;
-      } else {
-        cache = cache;
+        temp++;
         continue;
       }
+      temp = temp;
+      continue;
     }
-    result.push(cache);
-    cache = 0;
+    result.push(temp);
+    temp = 0;
     helper(arr.slice(1));
   }
 
@@ -37,9 +36,25 @@ function smaller(array) {
 
 
 
-// sorter bot slower
+
+
+
+
+
+
+
+function smaller(arr) {
+  return arr.map(function (num, i) {
+    return arr.slice(i).filter(function (val) {
+      return val < num;
+    }).length;
+  })
+}
+
+
+// sorter but slower
 function smaller(arr) {
   return arr.map((num, i) => {
     return arr.slice(i).filter(v => v < num).length
   });
- }
+}

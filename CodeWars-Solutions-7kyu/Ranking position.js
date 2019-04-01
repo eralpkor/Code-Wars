@@ -27,6 +27,7 @@ function ranking(people) {
   var result = [];
   var pos = 0;
   var highPoints = 9999;
+
   for (var i = 0; i < input.length; i++) {
     if (input[i].points < highPoints) {
       pos = i + 1;
@@ -37,6 +38,7 @@ function ranking(people) {
     }
     result.push(input[i]);
   }
+  
   return result;
 }
 
@@ -45,7 +47,7 @@ function ranking(people) {
 function ranking(people) {
   people.sort((a, b) => b.points - a.points || a.name.localeCompare(b.name))
   
-  people.forEach((x, i) => x.position = !i || x.points < people[i-1].points ? i + 1 : people[i-1].position);
+  people.forEach((x, i) => x.position = !i || x.points < people[i - 1].points ? i + 1 : people[i - 1].position);
   return people;
 }
 
