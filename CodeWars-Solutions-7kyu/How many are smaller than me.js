@@ -36,13 +36,6 @@ function smaller(array) {
 
 
 
-
-
-
-
-
-
-
 function smaller(arr) {
   return arr.map(function (num, i) {
     return arr.slice(i).filter(function (val) {
