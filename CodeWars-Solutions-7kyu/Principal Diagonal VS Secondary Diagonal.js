@@ -31,4 +31,3 @@ function diagonal(matrix){
   return principal === secondary ? 'Draw!' : principal > secondary ? 'Principal Diagonal win!' : 'Secondary Diagonal win!';
 }
 
-
