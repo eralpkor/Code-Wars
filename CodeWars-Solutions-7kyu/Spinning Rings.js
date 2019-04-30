@@ -20,7 +20,7 @@ spinningRings(3, 2) = 2 */
 
 
 function spinningRings(inner, outer) {
-  for (let i = 1; inner - ((i - 1) % (inner + 1)) !== i % (outer + 1); i++) {}
+  for (var i = 1; inner - ((i - 1) % (inner + 1)) !== i % (outer + 1); i++) {}
   return i;
 }
 
