@@ -14,13 +14,16 @@ Example
 In given sample test case, first string is "baceb" so the substrings are b, ba, bac, bace, baceb, a, ac, ace, aceb, c, ce, ceb, e, eb, b and the number of vowels in each substring are 0, 1, 1, 2, 2, 1, 1, 2, 2, 0, 1, 1, 1, 1, 0 and the total number is sum of all presence which is 16. */
 
 function vowelRecognition(input){
+  var count = 0;
   function isVowel(c) {
     return ['a', 'e', 'i', 'o', 'u'].indexOf(c.toLowerCase()) !== -1
   }
   
   input.split('').forEach(function(val) {
-    
-  })
+    isVowel(val) ? count++ : count;
+  });
+
+  return count;
 }
 
 
