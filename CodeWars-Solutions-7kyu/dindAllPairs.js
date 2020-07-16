@@ -45,3 +45,4 @@ function duplicates(array) {
 function duplicates(array){
   return Array.from(new Set(array)).reduce((a,b) => a + Math.floor(array.filter(elem => elem===b).length / 2), 0)
 }
+
