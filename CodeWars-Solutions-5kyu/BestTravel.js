@@ -20,27 +20,50 @@
 
 // ys = [91, 74, 73, 85, 73, 81, 87] choose_best_sum(230, 3, ys) -> 228
 
+// helper function to find all sub arrays
+function subArrays(arr) {
+  // let subArr = []
+  if (arr.length === 1) {
+    return [arr];
+  } else {
+    subArr = subArrays(arr.slice(1));
+    return subArr.concat(subArr.map(e => e.concat(arr[0])), [[arr[0]]]);
+  }
+}
+
+// helper function to find all subarrays of length n within an array of arrays
+function filterByLength(arr, n) {
+  const result = arr.filter(a => a.length === n);
+  return result;
+}
+
+
 function chooseBestSum(distance, maxTown, ls) {
   if (ls.length < maxTown) {
     return null;
   }
 
-  const cache = [];
-  let len = ls.length - 1;
-  let right = 2;
+  const cache = filterByLength(subArrays(ls), maxTown);
+  // const trip = [];
+  let dist = 0;
+  console.log(cache);
 
-  for (let i = 0; i < ls.length - maxTown + 1; i++) {
-    for (let j = 1; j < ls.length - 1; j++) {
-      
+  for (const a of cache) {
+    let sum = a.reduce((acc, val) => acc + val);
+    console.log(sum);
+    if (sum <= distance && sum >= dist) {
+      dist = sum;
     }
   }
 
-  return cache;
+  return dist;
 }
 
 var ts = [50, 55, 57, 58, 60]
 
 console.log(chooseBestSum(163, 3, ts)) // 163
+// console.log(subArrays([1, 2, 3, 4, 5]))
+// console.log(filterByLength([1, 2, 3, 4, 5], 3))
 
 
  // while (left < right) {
@@ -58,5 +81,12 @@ console.log(chooseBestSum(163, 3, ts)) // 163
     //   for (let j = right; j > left; j--) {
     //     num = element + ls[left] + ls[j];
     //     cache.push(num);
+    //   }
+    // }
+
+
+    // for (let i = 0; i < ls.length - maxTown + 1; i++) {
+    //   for (let j = i + 1; j < ls.length - 1; j++) {
+        
     //   }
     // }
