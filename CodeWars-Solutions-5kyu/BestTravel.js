@@ -26,23 +26,37 @@ function chooseBestSum(distance, maxTown, ls) {
   }
 
   const cache = [];
+  let len = ls.length - 1;
+  let right = 2;
 
-  ls.sort((a, b) => a - b);
-  
-  for (let i = 0; i < ls.length; i++) {
-    const element = ls[i];
-    const left = ls[i] + 1;
-    const right = ls.length;
-
-    while (left < right) {
-      if (element + left + right === distance) {
-        
-      }
+  for (let i = 0; i < ls.length - maxTown + 1; i++) {
+    for (let j = 1; j < ls.length - 1; j++) {
+      
     }
   }
 
+  return cache;
 }
 
-var ts = [50, 55, 56, 57, 58]
+var ts = [50, 55, 57, 58, 60]
 
-console.log(choseBestSum(163, 3, ts)) // 163
+console.log(chooseBestSum(163, 3, ts)) // 163
+
+
+ // while (left < right) {
+    //   num = element + ls[left] + ls[right];
+    //   cache.push(num);
+    //   left++;
+    //   num = 0;
+    // }
+
+    // for (let i = 0; i < ls.length; i++) {
+    //   const element = ls[i];
+    //   let left = i + 1;
+    //   let right = ls.length - 1;
+  
+    //   for (let j = right; j > left; j--) {
+    //     num = element + ls[left] + ls[j];
+    //     cache.push(num);
+    //   }
+    // }

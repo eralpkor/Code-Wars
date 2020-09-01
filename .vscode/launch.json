@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}\\CodeWars-Solutions-6kyu\\NewCashier.js"
+      "program": "${workspaceFolder}\\CodeWars-Solutions-5kyu\\BestTravel.js"
     }
   ]
 }
