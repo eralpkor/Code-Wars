@@ -62,31 +62,3 @@ function chooseBestSum(distance, maxTown, ls) {
 var ts = [50, 55, 57, 58, 60]
 
 console.log(chooseBestSum(163, 3, ts)) // 163
-// console.log(subArrays([1, 2, 3, 4, 5]))
-// console.log(filterByLength([1, 2, 3, 4, 5], 3))
-
-
- // while (left < right) {
-    //   num = element + ls[left] + ls[right];
-    //   cache.push(num);
-    //   left++;
-    //   num = 0;
-    // }
-
-    // for (let i = 0; i < ls.length; i++) {
-    //   const element = ls[i];
-    //   let left = i + 1;
-    //   let right = ls.length - 1;
-  
-    //   for (let j = right; j > left; j--) {
-    //     num = element + ls[left] + ls[j];
-    //     cache.push(num);
-    //   }
-    // }
-
-
-    // for (let i = 0; i < ls.length - maxTown + 1; i++) {
-    //   for (let j = i + 1; j < ls.length - 1; j++) {
-        
-    //   }
-    // }
