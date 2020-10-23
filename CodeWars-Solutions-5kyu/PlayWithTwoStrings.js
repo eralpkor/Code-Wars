@@ -32,8 +32,6 @@ function workOnStrings(a, b){
   let aLower = a.toLowerCase();
   let bLower = b.toLowerCase();
 
-
-  // create a lowercase obj
   let aObj = [...aLower].reduce((acc, val) => {
     return (!acc.hasOwnProperty(val)) ? acc[val] = 1 : acc[val]++, acc;
   }, {});
@@ -59,6 +57,7 @@ function workOnStrings(a, b){
     }
     return s;
   }
+  
   function swap2(s, n) {
     var temp = s.toLowerCase();
     if (aObj.hasOwnProperty(temp)) {
@@ -77,56 +76,9 @@ function workOnStrings(a, b){
     return s;
   }
 
-  let aArr = [...a].map(swap).join('');
-  let bArr = [...b].map(swap2).join('');
-  
-  return aArr.concat(bArr);
+  return [...a].map(swap).join('').concat([...b].map(swap2).join(''));
 }
 
 console.log(workOnStrings("abab", "bababa")) //"ABAB bababa");
 console.log(workOnStrings("abc","cde")) // "abCCde"
 console.log(workOnStrings("abcdeFgtrzw", "defgGgfhjkwqe")) // "abcDeFGtrzW DEFGgGFhjkWqE"
-
-// expected 'abcDeFgtrzW DEfGGGfhjkWqE' to equal 'abcDeFGtrzW DEFGgGFhjkWqE' abcDefGtrzWDEFGGGFhjkWqE
-
-// expected 'abcDefgtrzWDEfGgGfhjkWqE' to equal 'abcDeFGtrzWDEFGgGFhjkWqE' // to lower
-
-// expected 'abcDeFgtrzWDEfGGGfhjkWqE' to equal 'abcDeFGtrzWDEFGgGFhjkWqE'
-
-
-
-// console.log(swap('E', 3))
-
-
-// for (let i = 0; i < aLower.length; i++) {
-  //   if (!aObj.hasOwnProperty(aLower[i])) {
-  //     aObj[aLower[i]] = [1, false]
-  //   } else {
-  //     aObj[aLower[i]][0] ++
-  //   }
-  // }
-
-
-  // for (let i = 0; i < bLower.length; i++) {
-  //   if (!bObj.hasOwnProperty(bLower[i])) {
-  //     bObj[bLower[i]] = [1, false]
-  //   } else {
-  //     bObj[bLower[i]][0] ++
-  //   }
-  // }
-
-
-  // for (const key in aObj) {
-  //   if (aObj.hasOwnProperty(key)) {
-  //     if (aObj[key][0] % 2 === 0) {
-  //       aObj[key][1] = true
-  //     }
-  //   }
-  // }
-  // for (const key in bObj) {
-  //   if (bObj.hasOwnProperty(key)) {
-  //     if (bObj[key][0] % 2 === 0) {
-  //       bObj[key][1] = true
-  //     }
-  //   }
-  // }
