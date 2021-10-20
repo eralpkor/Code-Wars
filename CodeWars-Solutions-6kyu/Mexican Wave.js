@@ -31,3 +31,16 @@ function wave(str) {
   return result;
 }
 
+function wave2(str) {
+  const result = [];
+
+  for (let i = 0; i < str.length; i++) {
+    if (/[a-z]/.test(str[i])) {
+      result.push(str.slice(0, i) + str[i].toUpperCase() + str.slice(i + 1, str.length))
+    }
+  }
+
+  return result
+}
+
+console.log(wave2('gap me'))
