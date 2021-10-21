@@ -22,16 +22,9 @@
 // --> 000111111000111000000000 000111111000000111000111 000111111111111000000111  // tripled
 // --> "000111111000111000000000000111111000000111000111000111111111111000000111"  // concatenated
 
-function dec2bin(dec){
-  return (dec >>> 0).toString(2);
-}
-
-// console.log(("00000000"+num.toString(2)).slice(-8));
-
 function encode(t) {
   return [...t].map(v => v.charCodeAt(0)).map(n => ("00000000"+n.toString(2)).slice(-8)).map(n => [...n].map(v => v + v + v).join('')).join('');
 }
-
 
 console.log('encode: ', encode("hey")) // "000111111000111000000000000111111000000111000111000111111111111000000111"
 
